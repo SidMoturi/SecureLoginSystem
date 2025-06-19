@@ -1,0 +1,6 @@
+Documentation Person 1: 
+Users create an account by providing a username and password. The code in the java file is where the user registration flow runs where the 
+system checks that the username is unique and the password meets complexity requirements. Hashing, a specific SHA-256 secure algorithm is written in java in which 
+passwords are transformed into fixed-length strings using a one-way function (SHA-256). This means the original password cannot be recovered from the hash. Additionally, I created a random salt, 
+which is added to each password before hashing. This prevents attackers from using precomputed tables (rainbow tables) to crack passwords and makes sure identical passwords have different hashes.
+These components work together to make passwords more secure and difficult on attackers end to hack through even in the case data is leaked. 
