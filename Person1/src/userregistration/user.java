@@ -37,7 +37,7 @@ public class UserRegistration {
         System.out.println("Registration successful!");
     }
 
-    // ✅ Check if username already exists
+    // Check if username already exists
     private static boolean isUsernameTaken(String username) {
         try (BufferedReader reader = new BufferedReader(new FileReader(USER_DATA_FILE))) {
             String line;
@@ -53,12 +53,12 @@ public class UserRegistration {
         return false;
     }
 
-    // ✅ Ensure password has minimum complexity
+    // Ensure password has minimum complexity
     private static boolean isPasswordComplex(String password) {
         return password.length() >= 8 && password.matches(".*[A-Za-z].*") && password.matches(".*[0-9].*");
     }
 
-    // ✅ Register the user with hashing and salting
+    // Register the user with hashing and salting
     private static void registerUser(String username, String password) {
         try {
             // Generate salt
@@ -82,7 +82,7 @@ public class UserRegistration {
         }
     }
 
-    // ✅ Generate random salt
+    // Generate random salt
     private static byte[] generateSalt() {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
@@ -90,7 +90,7 @@ public class UserRegistration {
         return salt;
     }
 
-    // ✅ Hash password using SHA-256 + salt
+    // Hash password using SHA-256 + salt
     private static String hashPassword(String password, byte[] salt) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         md.update(salt);
@@ -98,7 +98,7 @@ public class UserRegistration {
         return bytesToHex(hashedBytes);
     }
 
-    // ✅ Convert bytes to hex string
+    // Convert bytes to hex string
     private static String bytesToHex(byte[] bytes) {
         StringBuilder hex = new StringBuilder();
         for (byte b : bytes) {
